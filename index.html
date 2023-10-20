@@ -22,10 +22,12 @@
   <body class="stackedit">
     <div class="stackedit__html">
       <h1 id="sgb-colors">Super Game Boy Palette Creator</h1>
+      <h3>Original Code by Matt Braddock</h3>
+      <h3>pokered sgb conversion modification by cpinta</h3>
       <h3>About</h3>
       <p>The Super Game Boy has 32 pre-made color palettes and allows for users to create their own palettes. These palettes can be saved and shared with a 12-digit number in the format of <code>XXXX-XXXX-XXXX</code>. Thanks to an existing <a href="https://gamefaqs.gamespot.com/snes/588731-super-game-boy/faqs/58647" target="_blank">guide by Alice Kojiro</a>, the 12-digit code can be broken down into RGB colors for each layer.</p>
       <p>This tool aims to allow users to pick colors for each layer, and have a Super Game Boy color code produced using the closest available colors that the Super Game Boy supports. Conversely, a Super Game Boy color code can be supplied and the corresponding layer colors displayed.</p>
-      <p>An additional modification shows the values that are compatible with pokered's sgb palettes next to the HEX fields when "Convert colors to Pokemon" is clicked.</p>
+      <p>A modification to the original tool shows the values that are compatible with pokered's sgb palettes next to the HEX fields and vice versa.</p>
       <h3>Palette Creator</h3>
       <p>Presets:&nbsp;
         <select id="presets">
@@ -51,23 +53,26 @@
         <img id="image-four" class="preview" src="img/layer4.png">
       </div>
       <div class="color-container">
+        <p><button onclick="colorToPokemonBtn()" class="pokedecimal-button"># → Pokemon</button></p>
+        <p><button onclick="pokemonToColorBtn()" class="pokedecimal-button"># ← Pokemon</button></p>
+      </div>
+      <div class="color-container">
         <p>Layer 1: <input id="layer-one" class="jscolor" value="fff8ff"></p>
-        <p><span id="layer-1-decimals"></span></p>
+        <p><input type="text" id="layer-1-decimals" value="" class="pokedecimals"></p>
       </div>
       <div class="color-container">
         <p>Layer 2: <input id="layer-two" class="jscolor" value="b0b0b0"></p>
-        <p><span id="layer-2-decimals"></span></p>
+        <p><input type="text" id="layer-2-decimals" value="" class="pokedecimals"></p>
       </div>
       <div class="color-container">
         <p>Layer 3: <input id="layer-three" class="jscolor" value="606060"></p>
-        <p><span id="layer-3-decimals"></span></p>
+        <p><input type="text" id="layer-3-decimals" value="" class="pokedecimals"></p>
       </div>
       <div class="color-container">
         <p>Layer 4: <input id="layer-four" class="jscolor" value="000000"></p>
-        <p><span id="layer-4-decimals"></span></p>
+        <p><input type="text" id="layer-4-decimals" value="" class="pokedecimals"></p>
       </div>
       <p><button onclick="colorToCodeBtn()">Convert colors to code</button></p>
-      <p><button onclick="colorToPokemonBtn()">Convert colors to Pokemon</button></p>
       <p><button onclick="codeToColorBtn()">Convert code to colors</button></p>
       <p>SGB Code: <input id="sgb-code" type="text" value="0501-7630-4243"></p>
       <p id="share-link" style="display: none;"></p>

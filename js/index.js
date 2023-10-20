@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     } else codeToColor(sgbCode);
   }
+  colorToPokemonBtn();
 
 });
 
@@ -108,13 +109,34 @@ function colorToPokemonBtn() {
       let decFromHex = parseInt(hexSection, 16);
       decimalColors[j] = Math.floor(parseInt(hexSection, 16)/8);
     }
-  
-    let testvar = document.getElementById("layer-" + (i + 1) + "-decimals");
 
-    document.getElementById("layer-" + (i + 1) + "-decimals").textContent = decimalColors[0] + ',' + decimalColors[1] + ',' + decimalColors[2];
+    document.getElementById("layer-" + (i + 1) + "-decimals").value = decimalColors[0] + ',' + decimalColors[1] + ',' + decimalColors[2];
   }
 }
 
+function pokemonToColorBtn() {
+  let colorEls = document.getElementsByClassName("jscolor");
+  let decimals = document.getElementsByClassName("pokedecimals");
+  for (let i = 0; i < colorEls.length; i++) {
+    // Get the hex color value and convert it to decimal
+    let decimalColors = decimals[i].value.split(",");
+    //get first two digits of hexColor
+    let hexColor = "#";
+    for (let j = 0; j < 3; j++){
+      let currentNum = decimalColors[j];
+      let hexSection = "";
+      if(currentNum > 0){
+        hexSection = ((currentNum+1)*8-1).toString(16);
+      }
+      else{
+        hexSection = 0;
+        
+      }
+      hexColor += hexSection;
+    }
+    colorEls[i].jscolor.fromString(hexColor);
+  }
+}
 
 function codeToColorBtn() {
   let sgbCode = document.getElementById("sgb-code").value;
@@ -150,6 +172,7 @@ function applyPreset() {
   let sgbCode = presetObj.code;
   document.getElementById("sgb-code").value = sgbCode;
   codeToColor(sgbCode);
+  colorToPokemonBtn();
 }
 
 function randomPalette() {

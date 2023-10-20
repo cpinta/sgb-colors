@@ -7,17 +7,42 @@
     position: absolute;
 }
 
+.pokedecimals{
+    left: 10px;
+    width: 80px;
+    margin-left: 10px;
+}
+
+.pokedecimal-button{
+    margin-left: 25px;
+}
+
+.div{
+  vertical-align: top;
+  float: left;
+}
+
 /* CSS for the container */
 .color-container {
     display: flex;
     align-items: center;
-    margin-bottom: 0px; /* Add margin between each container */
+    margin-bottom: -30px;
+    white-space-collapse: discard;
+    top:-10px;
+    margin-left: 10px;
+    position: relative;
+    float: center;
+    overflow: hidden;
   }
   
   /* CSS for the hex field */
   .color-container .jscolor {
     width: 80px;
-    margin-right: 10px;
+  }
+
+  .color-container .input {
+    width: 80px;
+    margin-left: 10px;
   }
   
   /* CSS for the decimals text */
