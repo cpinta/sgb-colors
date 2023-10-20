@@ -7,3 +7,20 @@
     position: absolute;
 }
 
+/* CSS for the container */
+.color-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px; /* Add margin between each container */
+  }
+  
+  /* CSS for the hex field */
+  .color-container .jscolor {
+    width: 80px;
+    margin-right: 10px;
+  }
+  
+  /* CSS for the decimals text */
+  .color-container span {
+    font-weight: bold;
+  }

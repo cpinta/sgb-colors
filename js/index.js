@@ -87,9 +87,34 @@ function colorToCodeBtn() {
     let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)];
   }
-  for (let i = 0; i < imageEls.length; i++) imageEls[i].style.filter = filterColor(hexToRGB(nearColors[i]));
+  for (let i = 0; i < imageEls.length; i++){
+    imageEls[i].style.filter = filterColor(hexToRGB(nearColors[i]));
+  }
+    
   shareLink();
 }
+
+function colorToPokemonBtn() {
+  let colorEls = document.getElementsByClassName("jscolor");
+  colorToCodeBtn();
+  for (let i = 0; i < colorEls.length; i++) {
+    // Get the hex color value and convert it to decimal
+    let hexColor = colorEls[i].jscolor.toHEXString();
+    //get first two digits of hexColor
+    let decimalColors = [0, 0, 0];
+    for (let j = 0; j < 3; j++){
+      let num1 = (j*2)+1;
+      let hexSection = hexColor.substr(num1, 2);
+      let decFromHex = parseInt(hexSection, 16);
+      decimalColors[j] = Math.floor(parseInt(hexSection, 16)/8);
+    }
+  
+    let testvar = document.getElementById("layer-" + (i + 1) + "-decimals");
+
+    document.getElementById("layer-" + (i + 1) + "-decimals").textContent = decimalColors[0] + ',' + decimalColors[1] + ',' + decimalColors[2];
+  }
+}
+
 
 function codeToColorBtn() {
   let sgbCode = document.getElementById("sgb-code").value;
