@@ -123,10 +123,11 @@ function pokemonToColorBtn() {
     //get first two digits of hexColor
     let hexColor = "#";
     for (let j = 0; j < 3; j++){
-      let currentNum = decimalColors[j];
+      let currentNum = parseInt(decimalColors[j]);
       let hexSection = "";
       if(currentNum > 0){
-        hexSection = ((currentNum+1)*8-1).toString(16);
+        let hex = (((currentNum+1)*8)-1);
+        hexSection = hex.toString(16);
       }
       else{
         hexSection = 0;
